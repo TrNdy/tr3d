@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SegmentLabeling>
+  <BasePath type="relative">.</BasePath>
+  <IndexImgFile type="relative">labeling_frame0011.tif</IndexImgFile>
+  <Labels>7188 7183 7185 7164 7171 7176 7187 7179 7186 7169 7175 7180 7173 7178 7166 7177 7182 7184 7168 7174 7165 7167 7172 7170 7189 7181</Labels>
+  <Mapping>
+    <MappingEntry>
+      <Index>0</Index>
+      <Labels />
+    </MappingEntry>
+    <MappingEntry>
+      <Index>1</Index>
+      <Labels>7164</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>2</Index>
+      <Labels>7165</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>3</Index>
+      <Labels>7166</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>4</Index>
+      <Labels>7167</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>5</Index>
+      <Labels>7168</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>6</Index>
+      <Labels>7169</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>7</Index>
+      <Labels>7170</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>8</Index>
+      <Labels>7171</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>9</Index>
+      <Labels>7172</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>10</Index>
+      <Labels>7173</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>11</Index>
+      <Labels>7174</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>12</Index>
+      <Labels>7175</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>13</Index>
+      <Labels>7176</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>14</Index>
+      <Labels>7177</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>15</Index>
+      <Labels>7178</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>16</Index>
+      <Labels>7179</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>17</Index>
+      <Labels>7180</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>18</Index>
+      <Labels>7181</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>19</Index>
+      <Labels>7182</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>20</Index>
+      <Labels>7183</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>21</Index>
+      <Labels>7184</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>22</Index>
+      <Labels>7185</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>23</Index>
+      <Labels>7186</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>24</Index>
+      <Labels>7187</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>25</Index>
+      <Labels>7188</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>26</Index>
+      <Labels>7189</Labels>
+    </MappingEntry>
+  </Mapping>
+  <LabelingForests>
+    <Node>
+      <Label>7188</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7183</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7185</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7164</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7171</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7176</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7187</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7179</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7186</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7169</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7175</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7180</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7173</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7178</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7166</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7177</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7182</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7184</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7168</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7174</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7165</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7167</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7172</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7170</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7189</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7181</Label>
+      <Children />
+    </Node>
+    <Forest>
+      <Roots>7167 7176 7179 7184 7185 7169 7186 7175 7189 7188 7166 7165 7178 7170 7171 7187 7174 7177 7182 7180 7181 7183 7168 7164 7172 7173</Roots>
+    </Forest>
+  </LabelingForests>
+</SegmentLabeling>

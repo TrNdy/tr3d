@@ -1,0 +1,27 @@
+---
+- !mapping
+  action: previous tab
+  contexts: [tr3d]
+  triggers: [COMMA]
+- !mapping
+  action: next tab
+  contexts: [tr3d]
+  triggers: [PERIOD]
+# disable default scroll mapping...
+- !mapping
+  action: 2d scroll rotate
+  contexts: [bdv]
+  triggers: [not mapped]
+- !mapping
+  action: 2d scroll rotate fast
+  contexts: [bdv]
+  triggers: [not mapped]
+- !mapping
+  action: 2d scroll rotate slow
+  contexts: [bdv]
+  triggers: [not mapped]
+# instead do this:
+- !mapping
+  action: browse segments
+  contexts: [tr3d]
+  triggers: [scroll]

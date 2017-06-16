@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SegmentLabeling>
+  <BasePath type="relative">.</BasePath>
+  <IndexImgFile type="relative">labeling_frame0005.tif</IndexImgFile>
+  <Labels>7064 7056 7062 7060 7063 7066 7058 7057 7065 7059 7061 7067</Labels>
+  <Mapping>
+    <MappingEntry>
+      <Index>0</Index>
+      <Labels />
+    </MappingEntry>
+    <MappingEntry>
+      <Index>1</Index>
+      <Labels>7056</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>2</Index>
+      <Labels>7057</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>3</Index>
+      <Labels>7058</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>4</Index>
+      <Labels>7059</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>5</Index>
+      <Labels>7060</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>6</Index>
+      <Labels>7061</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>7</Index>
+      <Labels>7062</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>8</Index>
+      <Labels>7063</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>9</Index>
+      <Labels>7064</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>10</Index>
+      <Labels>7065</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>11</Index>
+      <Labels>7066</Labels>
+    </MappingEntry>
+    <MappingEntry>
+      <Index>12</Index>
+      <Labels>7067</Labels>
+    </MappingEntry>
+  </Mapping>
+  <LabelingForests>
+    <Node>
+      <Label>7064</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7056</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7062</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7060</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7063</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7066</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7058</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7057</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7065</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7059</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7061</Label>
+      <Children />
+    </Node>
+    <Node>
+      <Label>7067</Label>
+      <Children />
+    </Node>
+    <Forest>
+      <Roots>7059 7064 7056 7062 7063 7060 7067 7065 7066 7058 7057 7061</Roots>
+    </Forest>
+  </LabelingForests>
+</SegmentLabeling>
