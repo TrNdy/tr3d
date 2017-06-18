@@ -53,6 +53,9 @@ import org.scijava.ui.behaviour.io.InputTriggerConfig;
 import org.scijava.ui.behaviour.io.yaml.YamlConfigIO;
 import org.scijava.ui.behaviour.util.InputActionBindings;
 import org.scijava.ui.behaviour.util.TriggerBehaviourBindings;
+import org.trndy.graph.SegmentGraph;
+import org.trndy.graph.SegmentVertex;
+import org.trndy.graph.SubsetEdge;
 
 import com.indago.data.segmentation.LabelData;
 import com.indago.data.segmentation.LabelingFragment;
@@ -160,8 +163,8 @@ public class BuildSegmentGraph
 		final ColorTableConverter conv = new ColorTableConverter( labelingPlus );
 
 		final SelectedSegmentsColorTable selectColorTable = new SelectedSegmentsColorTable( labelingPlus, conv, selectionModel );
-		final HighlightedSegmentsColorTable highlightColorTable = new HighlightedSegmentsColorTable( labelingPlus, conv, highlightModel );
-		final FocusedSegmentsColorTable focusColorTable = new FocusedSegmentsColorTable( labelingPlus, conv, focusModel );
+		final HighlightedSegmentsColorTable highlightColorTable = new HighlightedSegmentsColorTable( modelGraph, labelingPlus, conv, highlightModel );
+		final FocusedSegmentsColorTable focusColorTable = new FocusedSegmentsColorTable( modelGraph, labelingPlus, conv, focusModel );
 		final SelectedSegmentsColorTable segmentsUnderMouseColorTable = new SelectedSegmentsColorTable( labelingPlus, conv, segmentsUnderMouse );
 
 		conv.addColorTable( selectColorTable );
@@ -369,13 +372,17 @@ public class BuildSegmentGraph
 
 		private final HighlightModel< SegmentVertex, SubsetEdge > highlightModel;
 
+		private final SegmentVertex ref;
+
 		public HighlightedSegmentsColorTable(
+				final SegmentGraph graph,
 				final LabelingPlus labelingPlus,
 				final ColorTableConverter converter,
 				final HighlightModel< SegmentVertex, SubsetEdge > highlightModel )
 		{
 			super( labelingPlus, converter );
 			this.highlightModel = highlightModel;
+			this.ref = graph.vertexRef();
 			highlightModel.addHighlightListener( this );
 			update();
 		}
@@ -389,7 +396,7 @@ public class BuildSegmentGraph
 		@Override
 		protected void fillLut()
 		{
-			final SegmentVertex v = highlightModel.getHighlightedVertex( null );
+			final SegmentVertex v = highlightModel.getHighlightedVertex( ref );
 			if ( v != null )
 			{
 				final ArrayList< LabelingFragment > fragments = labelingPlus.getFragments();
@@ -405,13 +412,17 @@ public class BuildSegmentGraph
 
 		private final FocusModel< SegmentVertex, SubsetEdge > focusModel;
 
+		private final SegmentVertex ref;
+
 		public FocusedSegmentsColorTable(
+				final SegmentGraph graph,
 				final LabelingPlus labelingPlus,
 				final ColorTableConverter converter,
 				final FocusModel< SegmentVertex, SubsetEdge > focusModel )
 		{
 			super( labelingPlus, converter );
 			this.focusModel = focusModel;
+			this.ref = graph.vertexRef();
 			focusModel.addFocusListener( this );
 			update();
 		}
@@ -425,7 +436,7 @@ public class BuildSegmentGraph
 		@Override
 		protected void fillLut()
 		{
-			final SegmentVertex v = focusModel.getFocusedVertex( null );
+			final SegmentVertex v = focusModel.getFocusedVertex( ref );
 			if ( v != null )
 			{
 				final ArrayList< LabelingFragment > fragments = labelingPlus.getFragments();
@@ -524,11 +535,14 @@ public class BuildSegmentGraph
 		final ShortestPath< SegmentVertex, SubsetEdge > sp = new ShortestPath<>( graph, SearchDirection.DIRECTED );
 
 		// create vertices for all segments
+		final int timepoint = 0;
 		for ( final LabelData segment : labelingPlus.getLabeling().getMapping().getLabels() )
-			graph.addVertex().init( segment );
+			graph.addVertex().init( segment, timepoint );
 
 		final CheckedPairs pairs = new CheckedPairs( graph.getGraphIdBimap() );
 		// Build partial order graph
+		final SegmentVertex ref1 = graph.vertexRef();
+		final SegmentVertex ref2 = graph.vertexRef();
 		for ( final LabelingFragment fragment : labelingPlus.getFragments() )
 		{
 			final ArrayList< LabelData > conflictingSegments = fragment.getSegments();
@@ -537,12 +551,12 @@ public class BuildSegmentGraph
 			// edges)
 			for ( final LabelData subset : conflictingSegments )
 			{
-				final SegmentVertex subv = graph.getVertexForLabel( subset );
+				final SegmentVertex subv = graph.getVertexForLabel( subset, ref1 );
 				for ( final LabelData superset : conflictingSegments )
 				{
 					if ( subset.equals( superset ) )
 						continue;
-					final SegmentVertex superv = graph.getVertexForLabel( superset );
+					final SegmentVertex superv = graph.getVertexForLabel( superset, ref2 );
 
 					// Was this (ordered) pair of vertices already checked?
 					// If yes, abort.
@@ -582,6 +596,8 @@ public class BuildSegmentGraph
 				}
 			}
 		}
+		graph.releaseRef( ref1 );
+		graph.releaseRef( ref2 );
 
 		// Find all roots
 		final Set< SegmentVertex > roots = new HashSet<>();

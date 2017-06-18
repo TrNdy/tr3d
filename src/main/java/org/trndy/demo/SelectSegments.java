@@ -38,14 +38,9 @@ public class SelectSegments {
 
 	public void run() throws IOException
 	{
-//		final InputTriggerConfig config = new InputTriggerConfig( YamlConfigIO.read( "/Users/pietzsch/Desktop/tr2d.yaml" ) );
-		final InputTriggerConfig config = new InputTriggerConfig( YamlConfigIO.read( "/Users/jug/MPI/ProjectHernan/Tr2dProjectPath/tr2d.yaml" ) );
-//		final InputTriggerConfig config = new InputTriggerConfig();
-
-//		final String folder = "/Users/pietzsch/Desktop/data/tr2d/tr2d_project_folder/DebugStack03-crop/tracking/labeling_frames/";
-		final String folder = "/Users/jug/MPI/ProjectHernan/Tr2dProjectPath/DebugStack03-crop/tracking/labeling_frames/";
+		final String folder = "samples/labeling_frames/";
+		final InputTriggerConfig config = new InputTriggerConfig( YamlConfigIO.read( "samples/tr3d.yaml" ) );
 		final String fLabeling = folder + "labeling_frame0000.xml";
-
 		labelingPlus = new XmlIoLabelingPlus().load( fLabeling );
 
 //		Converters.convert( lp.getLabeling().getIndexImg(), new ColorFragments(), new ARGBType() );

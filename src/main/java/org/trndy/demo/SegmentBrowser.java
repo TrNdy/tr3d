@@ -18,6 +18,9 @@ import org.scijava.ui.behaviour.io.InputTriggerConfig;
 import org.scijava.ui.behaviour.util.Behaviours;
 import org.scijava.ui.behaviour.util.TriggerBehaviourBindings;
 import org.trndy.Tr3dLog;
+import org.trndy.graph.SegmentGraph;
+import org.trndy.graph.SegmentVertex;
+import org.trndy.graph.SubsetEdge;
 
 import com.indago.data.segmentation.LabelData;
 import com.indago.data.segmentation.LabelingPlus;
@@ -205,7 +208,11 @@ public class SegmentBrowser
 			segmentsUnderMouse.pauseListeners();
 			segmentsUnderMouse.clearSelection();
 			for ( final LabelData label : a.get() )
-				segmentsUnderMouse.setSelected( segmentGraph.getVertexForLabel( label ), true );
+			{
+				final SegmentVertex ref = segmentGraph.vertexRef();
+				segmentsUnderMouse.setSelected( segmentGraph.getVertexForLabel( label, ref ), true );
+				segmentGraph.releaseRef( ref );
+			}
 			segmentsUnderMouse.resumeListeners();
 
 			segmentsOrdered.clear();
